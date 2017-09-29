@@ -1,0 +1,154 @@
+---
+---
+
+@import 'reset';
+
+$em: 20px;
+$scale: 1.7;
+
+$c_color: #111;
+
+html, body {
+  font-family: 'Libre Baskerville', serif;
+  font-size: $em;
+  color: $c_color;
+}
+
+a {
+  color: $c_color;
+  text-decoration: none;
+}
+
+.main {
+  margin-bottom: 1em * $scale * $scale * $scale;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 722px;
+  position: relative;
+  left: 100px;
+  //left: 200px /
+}
+
+.wrapper-header {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 722px + 200px;
+  position: relative;
+  //left: 200px / 4 * -1;
+}
+
+.section-header {
+  margin-top: 1em * $scale * $scale * $scale;
+}
+
+.header {
+  margin-bottom: 1em;
+}
+
+.row {
+  display: flex;
+}
+
+hr {
+  color: none;
+  background: none;
+  border-top: 2px solid $c_color;
+}
+
+.row-item-mc {
+  width: 100% - (100% / $scale / $scale);
+}
+
+.row-item-sc {
+  width: 100% / $scale / $scale;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 1em;
+  + p {
+    margin-top: 1em;
+  } a {
+    background: linear-gradient(#fffff8,#fffff8),linear-gradient(#fffff8,#fffff8),linear-gradient(#333,#333);
+    background-size: 0.05em 1px,0.05em 1px,1px 1px;
+    background-repeat: no-repeat,no-repeat,repeat-x;
+    background-position: 0% 93%,100% 93%,0% 93%;
+    text-shadow: 0.03em 0 #fffff8,-0.03em 0 #fffff8,0 0.03em #fffff8,0 -0.03em #fffff8,0.06em 0 #fffff8,-0.06em 0 #fffff8,0.09em 0 #fffff8,-0.09em 0 #fffff8,0.12em 0 #fffff8,-0.12em 0 #fffff8,0.15em 0 #fffff8,-0.15em 0 #fffff8;
+    transition: 0.2s all ease;
+
+    &:hover {
+      background: #e5e5e5;
+      text-shadow: none;
+      box-shadow: 0 0 0 3px #e5e5e5;
+    }
+  }
+}
+
+h1 {
+  font-size: 1em * $scale * $scale;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.05em;
+  margin: (1em) 0 (1em / $scale / $scale);
+}
+
+h2 {
+  font-size: 1em * $scale;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.05em;
+  margin: (1em * $scale * $scale) 0 (1em);
+}
+
+h3 {
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.05em;
+  margin: (1em * $scale * $scale) 0 (1em);
+}
+
+li {
+  &:before {
+    content: '•';
+    position: absolute;
+    left: 0;
+  }
+  line-height: $scale;
+  padding-left: 1em * $scale;
+  position: relative;
+  margin: (1em) 0;
+}
+
+.i {
+  font-style: italic;
+}
+
+.indent {
+  margin-left: $em * $scale;
+}
+
+a::selection{text-shadow:0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,0 -0.03em #b4d5fe,0.06em 0 #b4d5fe,-0.06em 0 #b4d5fe,0.09em 0 #b4d5fe,-0.09em 0 #b4d5fe,0.12em 0 #b4d5fe,-0.12em 0 #b4d5fe,0.15em 0 #b4d5fe,-0.15em 0 #b4d5fe;background:#b4d5fe;}
+
+a::-moz-selection{text-shadow:0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,0 -0.03em #b4d5fe,0.06em 0 #b4d5fe,-0.06em 0 #b4d5fe,0.09em 0 #b4d5fe,-0.09em 0 #b4d5fe,0.12em 0 #b4d5fe,-0.12em 0 #b4d5fe,0.15em 0 #b4d5fe,-0.15em 0 #b4d5fe;background:#b4d5fe;}
+
+aside {
+  position: absolute;
+  left: -150px - ($em * $scale);
+  text-align: left;
+  width: 150px;
+  margin-top: 0.4em;
+  font-style: italic;
+}
+
+li {
+
+}

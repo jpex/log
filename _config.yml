@@ -1,0 +1,13 @@
+# Site settings
+title:       Diary
+description: "Development diary of J"
+
+defaults:
+  -
+    values:
+      layout: "default"
+
+permalink: /:title/
+
+paginate: 10
+paginate_path: "/single/"
