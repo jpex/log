@@ -1,0 +1,27 @@
+{% include head.html %}
+  <div class="main">
+    {% include header.html %}
+    <div class="wrapper-tag">
+
+      <h2>{{ page.title }}</h2>
+
+      {{ content }}
+
+      <div class="post">
+        <ul>
+          {% for post in site.tags[page.tag] %}
+            <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date_to_string }})<br>
+              {{ post.description }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+{% include foot.html %}

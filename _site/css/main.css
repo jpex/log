@@ -16,6 +16,8 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 
 table { border-collapse: collapse; border-spacing: 0; }
 
+*, *:after, *:before { box-sizing: border-box; -webkit-box-sizing: border-box; }
+
 html, body { font-family: 'Libre Baskerville', serif; font-size: 20px; color: #111; }
 
 a { color: #111; text-decoration: none; }
@@ -26,13 +28,19 @@ a { color: #111; text-decoration: none; }
 
 .wrapper-header { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 922px; position: relative; }
 
-.section-header { margin-top: 4.913em; }
+.wrapper-tag { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 922px; position: relative; }
+
+img { max-width: 100%; padding: 2.89em; background-color: #f3f3f3; }
+
+.section-header { margin-top: 8.3521em; }
 
 .header { margin-bottom: 1em; }
 
 .row { display: flex; }
 
 hr { color: none; background: none; border-top: 2px solid #111; }
+
+.home-hr { margin-bottom: -1.7em; }
 
 .row-item-mc { width: 65.3979238754%; }
 

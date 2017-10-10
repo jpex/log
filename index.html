@@ -1,14 +1,15 @@
 ---
 title: Me
+tags: about-face
 ---
 
 <div class="wrapper-header">
   <div class="row">
     <div class="row-item-mc">
       <h3>Current Deep Focus</h3>
-      <p><span class="i">About Face: The Essentials of Interaction Design</span>
+      <p><span class="i">Universal Principles of Design</span>
         <br>
-        <span class="indent"><a href="">More Info</a> • <a href="">Publisher Page</a></span></p>
+        <span class="indent"><a href="/tag/upd">More Info</a> • <a href="http://universalprinciplesofdesign.com/books/" target="_blank">Publisher Page</a></span></p>
       </p>
     </div>
     <div class="row-item-sc">
@@ -19,36 +20,35 @@ title: Me
   </div>
 
   <h3 class="section-header">Entries</h3>
-  <hr>
+  <hr class="home-hr">
 
 </div>
 
 <div class="wrapper">
 
 
+  {% for post in site.posts %}
 
+    {% assign day = post.date | date: "%-d" %}
 
+    <a href="{{ post.url }}"><h2>
+      {{ post.date | date: "%B " }}
+      {% case day %}
+        {% when '1' or '21' or '31' %}{{ day }}st,
+        {% when '2' or '22' %}{{ day }}nd,
+        {% when '3' or '23' %}{{ day }}rd,
+        {% else %}{{ day }}th,
+      {% endcase %}
+      {{ post.date | date: "%Y" }}
+    </h2></a>
+    <aside><a href="{{ post.url }}">Entry #{{ post.title }}</a></aside>
+    {{ post.content }}
 
-   <h2>September 27th, 2017</h2>
-  <aside>Entry #2</aside>
-  <p>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</p>
+    <h3>Tags</h3>
+    <p>
+      {% for tag in post.tags %}
+        <a href="/tag/{{ tag }}">{{ tag }}</a> &nbsp;
+      {% endfor %}
+    </p>
 
-  <h3>Type composition</h3>
-  <p>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</p>
-  <p>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</p>
-  <h3>Tags</h3>
-  <p><a href="#">Hello</a> <a href="#">Congratulations on quick links</a></p>
-
-
-     <h2>September 26th, 2017</h2>
-  <aside>Entry #1</aside>
-  <p>Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside, the sable cloud beneath was dished out, and the car seemed to float in the middle of an immense dark sphere, whose upper half was strewn with silver. Looking down into the dark gulf below, I could see a ruddy light streaming through a rift in the clouds.</p>
-
-  <h2>September 26th, 2017</h2>
-  <aside>Entry #3</aside>
-  <ul>
-    <li>Hello, this is the captain.</li>
-    <li>How are you all doing today?</li>
-  </ul>
-
-</div>
+  {% endfor %}

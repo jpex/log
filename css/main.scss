@@ -8,6 +8,11 @@ $scale: 1.7;
 
 $c_color: #111;
 
+*, *:after, *:before {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
 html, body {
   font-family: 'Libre Baskerville', serif;
   font-size: $em;
@@ -39,11 +44,24 @@ a {
   padding: 0 16px;
   max-width: 722px + 200px;
   position: relative;
-  //left: 200px / 4 * -1;
+}
+
+.wrapper-tag {
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 16px;
+  max-width: 722px + 200px;
+  position: relative;
+}
+
+img {
+  max-width: 100%;
+  padding: $scale * $scale * 1em;
+  background-color: #f3f3f3;
 }
 
 .section-header {
-  margin-top: 1em * $scale * $scale * $scale;
+  margin-top: 1em * $scale * $scale * $scale * $scale;
 }
 
 .header {
@@ -58,6 +76,10 @@ hr {
   color: none;
   background: none;
   border-top: 2px solid $c_color;
+}
+
+.home-hr {
+  margin-bottom: 1em * $scale * -1;
 }
 
 .row-item-mc {

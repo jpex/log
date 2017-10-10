@@ -11,3 +11,8 @@ permalink: /:title/
 
 paginate: 10
 paginate_path: "/single/"
+
+collections:
+  my_categories:
+    output: true
+    permalink: /category/:name/
