@@ -60,7 +60,7 @@ h3 { font-size: 1em; font-weight: 700; text-transform: uppercase; font-family: '
 li { line-height: 1.7; padding-left: 1.7em; position: relative; margin: 1em 0; }
 li:before { content: '•'; position: absolute; left: 0; }
 
-.i { font-style: italic; }
+.i, em { font-style: italic; }
 
 .indent { margin-left: 34px; }
 
