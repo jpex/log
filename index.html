@@ -9,7 +9,7 @@ tags: about-face
       <h3>Current Deep Focus</h3>
       <p><span class="i">Universal Principles of Design</span>
         <br>
-        <span class="indent"><a href="/tag/upd">More Info</a> • <a href="http://universalprinciplesofdesign.com/books/" target="_blank">Publisher Page</a></span></p>
+        <span class="indent"><a href="{{ site.baseurl }}/tag/upd">More Info</a> • <a href="http://universalprinciplesofdesign.com/books/" target="_blank">Publisher Page</a></span></p>
       </p>
     </div>
     <div class="row-item-sc">
@@ -31,7 +31,7 @@ tags: about-face
 
     {% assign day = post.date | date: "%-d" %}
 
-    <a href="{{ post.url }}"><h2>
+    <a href="{{ site.baseurl }}/{{ post.url }}"><h2>
       {{ post.date | date: "%B " }}
       {% case day %}
         {% when '1' or '21' or '31' %}{{ day }}st,
@@ -41,13 +41,13 @@ tags: about-face
       {% endcase %}
       {{ post.date | date: "%Y" }}
     </h2></a>
-    <aside><a href="{{ post.url }}">Entry #{{ post.title }}</a></aside>
+    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></aside>
     {{ post.content }}
 
     <h3>Tags</h3>
     <p>
       {% for tag in post.tags %}
-        <a href="/tag/{{ tag }}">{{ tag }}</a> &nbsp;
+        <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a> &nbsp;
       {% endfor %}
     </p>
 
