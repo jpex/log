@@ -1,4 +1,4 @@
 # Diary
-My Professional Diary
+My Professional Log
 
-## https://jpex.github.io/Diary/
+## https://jpex.github.io/log/
