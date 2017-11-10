@@ -16,5 +16,3 @@ collections:
   my_categories:
     output: true
     permalink: /category/:name/
-
-baseurl: /Diary

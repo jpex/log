@@ -22,8 +22,8 @@ Thanks for dropping by. - J (28 September 2018)
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700|Oswald:700" rel="stylesheet">
-        <link rel="stylesheet" href="/Diary/css/main.css">
-        <link rel="icon" type="image/ico" href="/Diary/favicon.png" />
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="icon" type="image/ico" href="/favicon.png" />
 
     </head>
     <body>
@@ -31,7 +31,7 @@ Thanks for dropping by. - J (28 September 2018)
   <div class="main">
     <div class="wrapper-header header">
   <h1>Professional Diary of James</h1>
-  <p><a href="/Diary/">Home</a> • <a href="/Diary/about">About</a></p>
+  <p><a href="/">Home</a> • <a href="/about">About</a></p>
 </div>
 
     <div class="wrapper-tag">
@@ -44,7 +44,7 @@ Thanks for dropping by. - J (28 September 2018)
       <div class="post">
         <ul>
           
-            <li><a href="/Diary//1/">1</a> (09 Oct 2017)<br>
+            <li><a href="//1/">1</a> (09 Oct 2017)<br>
               
             </li>
           
@@ -66,6 +66,17 @@ Thanks for dropping by. - J (28 September 2018)
       gtag('js', new Date());
 
       gtag('config', 'UA-107863267-1');
+    </script>
+
+    <script>
+      window.onload = function() {
+        var number = document.getElementById("js-1").innerText;
+        if (number === "1") {
+          document.getElementById("streak-days").innerText = "day";
+        }
+        document.getElementById("streak-num").innerText = number;
+      };
+
     </script>
 
   </body>

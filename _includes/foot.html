@@ -8,5 +8,16 @@
       gtag('config', 'UA-107863267-1');
     </script>
 
+    <script>
+      window.onload = function() {
+        var number = document.getElementById("js-1").innerText;
+        if (number === "1") {
+          document.getElementById("streak-days").innerText = "day";
+        }
+        document.getElementById("streak-num").innerText = number;
+      };
+
+    </script>
+
   </body>
 </html>

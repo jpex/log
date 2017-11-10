@@ -13,7 +13,7 @@ title: Me
     </div>
     <div class="row-item-sc">
       <h3>Current Entry Streak</h3>
-      <p>1 day &nbsp;<span class="i">(Oct 9–)</span>
+      <p><span id="streak-num">0</span> <span id="streak-days">days</span>
       </p>
     </div>
   </div>
@@ -25,10 +25,50 @@ title: Me
 
 <div class="wrapper">
 
+  {% assign test = "" | split: "" %}
+  {% assign testStreak = "" | split: "" %}
+  {% assign i = -1 %}
+  {% assign k = 0 %}
+  {% assign recent = 1 %}
+  {% assign streak = 0 %}
+
+
+
+  {% for post in site.posts reversed %}
+
+
+    {% assign hello = post.date | date: "%j" %}
+    {% assign test = test | push: hello %}
+
+  {% endfor %}
+
+  {% for post in site.posts reversed %}
+    {% assign calc = test[k] | minus:test[i] %}
+
+    {% if calc == 1 %}
+      {% assign streak = streak | plus:1 %}
+      {% assign testStreak = testStreak | push: streak %}
+      {% else %}
+        {% assign streak = 1 %}
+        {% assign testStreak = testStreak | push: streak %}
+    {% endif %}
+
+    {% assign i = i | plus:1 %}
+    {% assign k = k | plus:1 %}
+
+
+  {% endfor %}
+
+
+
+  {% assign r = testStreak | size %}
+  {% assign r = r | minus:1 %}
 
   {% for post in site.posts %}
 
+
     {% assign day = post.date | date: "%-d" %}
+
 
     <a href="{{ site.baseurl }}/{{ post.url }}"><h2>
       {{ post.date | date: "%B " }}
@@ -40,7 +80,10 @@ title: Me
       {% endcase %}
       {{ post.date | date: "%Y" }}
     </h2></a>
-    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></aside>
+
+
+
+    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }} <br><br> Streak: <span id="js-{{ recent }}">{{ testStreak[r] }}</span></a></aside>
     {{ post.content }}
 
     <h3>Tags</h3>
@@ -50,4 +93,6 @@ title: Me
       {% endfor %}
     </p>
 
+    {% assign recent = recent | plus:1 %}
+    {% assign r = r | minus:1 %}
   {% endfor %}
