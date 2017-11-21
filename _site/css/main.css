@@ -18,21 +18,25 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 *, *:after, *:before { box-sizing: border-box; -webkit-box-sizing: border-box; }
 
-html, body { font-family: 'Libre Baskerville', serif; font-size: 20px; color: #111; }
+html, body { font-family: 'Libre Baskerville', serif; font-size: 16px; color: #111; }
+@media (min-width: 550px) { html, body { font-size: 20px; } }
 
 a { color: #111; text-decoration: none; }
 
 .main { margin-bottom: 4.913em; }
 
-.wrapper { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 722px; position: relative; left: 100px; }
+.wrapper { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 722px; position: relative; }
+@media (min-width: 922px) { .wrapper { left: 100px; } }
 
 .wrapper-header { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 922px; position: relative; }
 
 .wrapper-tag { margin: 0 auto; width: 100%; padding: 0 16px; max-width: 922px; position: relative; }
 
-img { max-width: 100%; padding: 2.89em; background-color: #f3f3f3; }
+img { max-width: 100%; padding: 1.7em; background-color: #f3f3f3; }
+@media (min-width: 600px) { img { padding: 2.89em; } }
 
-.section-header { margin-top: 8.3521em; }
+.section-header { margin-top: 2.89em; }
+@media (min-width: 600px) { .section-header { margin-top: 8.3521em; } }
 
 .header { margin-bottom: 1em; }
 
@@ -42,18 +46,27 @@ hr { color: none; background: none; border-top: 2px solid #111; }
 
 .home-hr { margin-bottom: -1.7em; }
 
-.row-item-mc { width: 65.3979238754%; }
+.row-item-mc { width: 100%; }
+@media (min-width: 600px) { .row-item-mc { width: 65.3979238754%; } }
 
-.row-item-sc { width: 34.6020761246%; }
+.row-item-sc { display: none; width: 34.6020761246%; }
+@media (min-width: 600px) { .row-item-sc { display: block; } }
 
 p { line-height: 1.7; font-size: 1em; }
 p + p { margin-top: 1em; }
 p a { background: linear-gradient(#fffff8, #fffff8), linear-gradient(#fffff8, #fffff8), linear-gradient(#333, #333); background-size: 0.05em 1px,0.05em 1px,1px 1px; background-repeat: no-repeat,no-repeat,repeat-x; background-position: 0% 93%,100% 93%,0% 93%; text-shadow: 0.03em 0 #fffff8,-0.03em 0 #fffff8,0 0.03em #fffff8,0 -0.03em #fffff8,0.06em 0 #fffff8,-0.06em 0 #fffff8,0.09em 0 #fffff8,-0.09em 0 #fffff8,0.12em 0 #fffff8,-0.12em 0 #fffff8,0.15em 0 #fffff8,-0.15em 0 #fffff8; transition: 0.2s all ease; }
 p a:hover { background: #e5e5e5; text-shadow: none; box-shadow: 0 0 0 3px #e5e5e5; }
 
-h1 { font-size: 2.89em; font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; margin: 1em 0 0.3460207612em; }
+h1 { font-size: 1.2em; font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; margin: 1em 0 0.3460207612em; }
+@media (min-width: 400px) { h1 { font-size: 1.7em; } }
+@media (min-width: 550px) { h1 { font-size: 2.89em; } }
 
-h2 { font-size: 1.7em; font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; margin: 2.89em 0 1em; }
+h2 { font-size: 1.7em; font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; margin: 2.89em 0 0.3460207612em; }
+
+h4 { margin-bottom: 1.7em; font-size: 0.8em; font-style: italic; }
+
+.streak { display: none; }
+@media (min-width: 922px) { .streak { display: block; } }
 
 h3 { font-size: 1em; font-weight: 700; text-transform: uppercase; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; margin: 2.89em 0 1em; }
 
@@ -68,4 +81,5 @@ a::selection { text-shadow: 0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,
 
 a::-moz-selection { text-shadow: 0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,0 -0.03em #b4d5fe,0.06em 0 #b4d5fe,-0.06em 0 #b4d5fe,0.09em 0 #b4d5fe,-0.09em 0 #b4d5fe,0.12em 0 #b4d5fe,-0.12em 0 #b4d5fe,0.15em 0 #b4d5fe,-0.15em 0 #b4d5fe; background: #b4d5fe; }
 
-aside { position: absolute; left: -184px; text-align: left; width: 150px; margin-top: 0.4em; font-style: italic; }
+aside { text-align: left; margin-top: 0.4em; margin-bottom: 1.7em; font-style: italic; }
+@media (min-width: 922px) { aside { position: absolute; left: -184px; width: 150px; } }

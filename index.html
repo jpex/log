@@ -80,10 +80,11 @@ title: Me
       {% endcase %}
       {{ post.date | date: "%Y" }}
     </h2></a>
+    <h4 class="streak">Entry Streak: <span id="js-{{ recent }}">{{ testStreak[r] }}</span></h4>
 
 
 
-    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }} <br><br> Streak: <span id="js-{{ recent }}">{{ testStreak[r] }}</span></a></aside>
+    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></aside>
     {{ post.content }}
 
     <h3>Tags</h3>
