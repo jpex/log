@@ -9,8 +9,8 @@ defaults:
 
 permalink: /:title/
 
-paginate: 10
-paginate_path: "/single/"
+paginate: 14
+paginate_path: "/log/page:num/"
 
 collections:
   my_categories:

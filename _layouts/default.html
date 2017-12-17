@@ -1,6 +1,48 @@
-{% include head.html %}
+{% include head-log.html %}
   <div class="main">
     {% include header.html %}
-    {{ content }}
+    <div class="wrapper">
+
+      {% assign day = page.date | date: "%-d" %}
+
+      <h2>
+        {{ page.date | date: "%B " }}
+        {% case day %}
+          {% when '1' or '21' or '31' %}{{ day }}st,
+          {% when '2' or '22' %}{{ day }}nd,
+          {% when '3' or '23' %}{{ day }}rd,
+          {% else %}{{ day }}th,
+        {% endcase %}
+        {{ page.date | date: "%Y" }}
+      </h2>
+
+      <aside>Entry #{{ page.title }}</aside>
+
+
+
+      {{ content }}
+
+      <h3>Tags</h3>
+      <p>
+        {% for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a> &nbsp;
+        {% endfor %}
+      </p>
+
+
+    </div>
+    <div class="wrapper-header header">
+      <hr class="nav-hr">
+      <div class="prev-next">
+        {% if page.previous.url %}
+           <a class="prev" href="{{page.previous.url}}">← <span>Entry #{{page.previous.title}}</span></a>
+         {% endif %}
+         {% if page.next.url %}
+           <a class="next" href="{{page.next.url}}"><span>Entry #{{page.next.title}}</span> →</a>
+         {% endif %}
+       </div>
+
+    </div>
+
   </div>
 {% include foot.html %}
