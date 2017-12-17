@@ -1,0 +1,18 @@
+{% include head.html %}
+  <div class="main">
+    {% include header.html %}
+    {{ content }}
+
+    <div class="wrapper-header header">
+      <hr class="nav-hr">
+      <div class="prev-next">
+        <div class="prev-next-col">
+         </div>
+         <div class="prev-next-col">
+             <a class="next" href="{{ site.baseurl }}/log/page2/"><span>Older Daily Entries</span> →</a>
+         </div>
+       </div>
+    </div>
+
+  </div>
+{% include foot.html %}

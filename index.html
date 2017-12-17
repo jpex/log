@@ -1,76 +1,58 @@
 ---
-title: Me
+title: James’ Log
+layout: home
 ---
 
 <div class="wrapper-header">
+  <p class="intro">Hi, my name is James, and this is my professional development log. I am a UX designer by trade.</p>
+
+
   <div class="row">
     <div class="row-item-mc">
-      <h3>Current Deep Focus</h3>
-      <p><span class="i">Universal Principles of Design</span>
-        <br>
-        <span class="indent"><a href="{{ site.baseurl }}/tag/upd">More Info</a> • <a href="http://universalprinciplesofdesign.com/books/" target="_blank">Publisher Page</a></span></p>
-      </p>
+      <div class="row-col">
+        <h3>Current Major Focus</h3>
+        <p><a href="{{ site.baseurl }}/tag/upd"><span class="i">Universal Principles of Design</a></span>
+          <br>
+          <span class="indent">Since October 2017</span></p>
+        </p>
+      </div>
+      <div class="row-col">
+        <h3>Current Minor Focus</h3>
+        <p><a href="{{ site.baseurl }}/tag/branding"><span class="i">Branding: A Very Short Introduction</a></span>
+          <br>
+          <span class="indent">Since December 2017</span></p>
+        </p>
+
+        <p><a href="{{ site.baseurl }}/tag/af"><span class="i">About Face: The Essentials of Interaction Design</a></span>
+          <br>
+          <span class="indent">Since December 2017</span></p>
+        </p>
+
+      </div>
+      <div class="row-col">
+        <h3>Completed Studies</h3>
+        <p>There's nothing here.
+        </p>
+      </div>
     </div>
-    <div class="row-item-sc">
-      <h3>Current Entry Streak</h3>
-      <p><span id="streak-num">0</span> <span id="streak-days">days</span>
-      </p>
-    </div>
+
   </div>
 
-  <h3 class="section-header">Entries</h3>
+
+  <h3 class="section-header">Lastest Daily Entries</h3>
   <hr class="home-hr">
 
 </div>
 
 <div class="wrapper">
 
-  {% assign test = "" | split: "" %}
-  {% assign testStreak = "" | split: "" %}
-  {% assign i = -1 %}
-  {% assign k = 0 %}
-  {% assign recent = 1 %}
-  {% assign streak = 0 %}
-
-
-
-  {% for post in site.posts reversed %}
-
-
-    {% assign hello = post.date | date: "%j" %}
-    {% assign test = test | push: hello %}
-
-  {% endfor %}
-
-  {% for post in site.posts reversed %}
-    {% assign calc = test[k] | minus:test[i] %}
-
-    {% if calc == 1 %}
-      {% assign streak = streak | plus:1 %}
-      {% assign testStreak = testStreak | push: streak %}
-      {% else %}
-        {% assign streak = 1 %}
-        {% assign testStreak = testStreak | push: streak %}
-    {% endif %}
-
-    {% assign i = i | plus:1 %}
-    {% assign k = k | plus:1 %}
-
-
-  {% endfor %}
-
-
-
-  {% assign r = testStreak | size %}
-  {% assign r = r | minus:1 %}
-
-  {% for post in site.posts %}
+  {% for post in site.posts limit:14 %}
 
 
     {% assign day = post.date | date: "%-d" %}
 
 
-    <a href="{{ site.baseurl }}/{{ post.url }}"><h2>
+    <h2>
       {{ post.date | date: "%B " }}
       {% case day %}
         {% when '1' or '21' or '31' %}{{ day }}st,
@@ -79,16 +61,13 @@ title: Me
         {% else %}{{ day }}th,
       {% endcase %}
       {{ post.date | date: "%Y" }}
-    </h2></a>
-    <h4 class="streak">Entry Streak: <span id="js-{{ recent }}">{{ testStreak[r] }}</span></h4>
+    </h2>
 
-
-
-    <aside><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></aside>
+    <aside><p><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></p></aside>
     {{ post.content }}
 
     <h3>Tags</h3>
-    <p>
+    <p class="p-end">
       {% for tag in post.tags %}
         <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a> &nbsp;
       {% endfor %}
@@ -97,3 +76,5 @@ title: Me
     {% assign recent = recent | plus:1 %}
     {% assign r = r | minus:1 %}
   {% endfor %}
+
+</div>

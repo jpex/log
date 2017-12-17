@@ -1,6 +1,6 @@
 ---
 layout: tag
-title: "Tag: Universal Principles of Design"
+title: "Universal Principles of Design"
 tag: upd
 ---
 
