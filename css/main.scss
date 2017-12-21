@@ -150,6 +150,7 @@ hr {
     @media (min-width: 600px) { width: 330px }
 
   }
+  &.full { width: 100%; }
 }
 
 p {
@@ -175,6 +176,18 @@ p {
 
 .p-end {
   padding-bottom: 1em * $scale;
+}
+
+.study-tag {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 15px; // Small caps cheater
+  letter-spacing: 0.1em;
+  margin-right: 1em * $scale;
+}
+
+.study-date {
+  margin-left: 1em;
 }
 
 h1 {
@@ -231,7 +244,15 @@ li {
   padding-left: 1em * $scale;
   position: relative;
   margin: (1em) 0;
+
+  .no-style & {
+    &:before { display: none; }
+    padding: 0;
+    margin: 0;
+  }
 }
+
+
 
 .i, em {
   font-style: italic;
