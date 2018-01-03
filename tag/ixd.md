@@ -1,7 +1,7 @@
 ---
 layout: tag
 title: "About Face: The Essentials of Interaction Design"
-tag: af
+tag: ixd
 ---
 
 ![About Face: The Essentials of Interaction Design]({{ site.baseurl }}/images/ab-cover.jpg)
