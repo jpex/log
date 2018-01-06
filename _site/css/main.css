@@ -18,8 +18,8 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 *, *:after, *:before { box-sizing: border-box; -webkit-box-sizing: border-box; }
 
-html, body { font-family: 'Libre Baskerville', serif; font-size: 16px; color: #111; }
-@media (min-width: 550px) { html, body { font-size: 20px; } }
+html, body { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12.8px; color: #111; }
+@media (min-width: 550px) { html, body { font-size: 16px; } }
 
 a { color: #111; text-decoration: none; }
 
@@ -103,11 +103,21 @@ li:before { content: '•'; position: absolute; left: 0; }
 
 .i, em { font-style: italic; }
 
-.indent { margin-left: 34px; }
+.indent { margin-left: 27.2px; }
 
 a::selection { text-shadow: 0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,0 -0.03em #b4d5fe,0.06em 0 #b4d5fe,-0.06em 0 #b4d5fe,0.09em 0 #b4d5fe,-0.09em 0 #b4d5fe,0.12em 0 #b4d5fe,-0.12em 0 #b4d5fe,0.15em 0 #b4d5fe,-0.15em 0 #b4d5fe; background: #b4d5fe; }
 
 a::-moz-selection { text-shadow: 0.03em 0 #b4d5fe,-0.03em 0 #b4d5fe,0 0.03em #b4d5fe,0 -0.03em #b4d5fe,0.06em 0 #b4d5fe,-0.06em 0 #b4d5fe,0.09em 0 #b4d5fe,-0.09em 0 #b4d5fe,0.12em 0 #b4d5fe,-0.12em 0 #b4d5fe,0.15em 0 #b4d5fe,-0.15em 0 #b4d5fe; background: #b4d5fe; }
 
 aside { text-align: left; margin-bottom: 1.7em; font-style: italic; }
-@media (min-width: 942px) { aside { position: absolute; left: -194px; width: 150px; } }
+@media (min-width: 942px) { aside { position: absolute; left: -187.2px; width: 150px; } }
+
+header { background: #222; display: flex; justify-content: space-between; color: white; height: 50px; padding: 0 16px; align-items: center; font-size: 0.875em; }
+header .toggle a { text-decoration: none; color: white; padding: 6px 16px 9px 16px; display: inline-block; background: #444; margin-left: 8px; border-radius: 4px; }
+header .toggle a:hover { background: white; color: #222; }
+header .left { display: flex; }
+header .left a { color: white; text-decoration: none; margin-left: 32px; }
+header .left a:hover { color: rgba(255, 255, 255, 0.5); }
+header a { transition: 0.25s all ease; }
+
+.logo { text-transform: uppercase; letter-spacing: 0.1em; font-weight: 400; font-size: 1.0em; margin-bottom: 2px; }
