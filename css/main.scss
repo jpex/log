@@ -7,8 +7,11 @@ $em: 16px;
 $scale: 1.7;
 
 $c_color: #111;
+$c-text: #332e2d;
+
 
 $f-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$f-serif: 'Libre Baskerville', serif;
 
 *, *:after, *:before {
   box-sizing: border-box;
@@ -192,21 +195,6 @@ p {
   margin-left: 1em;
 }
 
-h1 {
-  font-size: 1em * 1.2;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 0.05em;
-  margin: (1em) 0 (1em / $scale / $scale);
-  @media (min-width: 400px) {
-    font-size: 1em * $scale;
-  }
-  @media (min-width: 550px) {
-    font-size: 1em * $scale * $scale;
-  }
-}
-
 h2 {
   font-size: 1em * $scale;
   font-weight: 700;
@@ -253,6 +241,7 @@ li {
     margin: 0;
   }
 }
+
 
 
 
@@ -321,4 +310,111 @@ header {
   font-weight: 400;
   font-size: 1.0em;
   margin-bottom: 2px;
+}
+
+
+
+.container {
+  max-width: 940px;
+  margin: 50px auto;
+}
+
+.content {
+  font-size: 1.25em;
+}
+
+.number {
+  font-size: 58px;
+  font-weight: 200;
+}
+
+.day {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 0.5em;
+} .month, .entry { font-size: 14px; }
+.month { margin-bottom: 0.5em; }
+.entry { margin-bottom: 1em; }
+
+.date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(#332e2d, 0.3);
+  border-left: 1px solid rgba(#332e2d, 0.3);
+  border-right: 1px solid rgba(#332e2d, 0.1);
+  padding: 16px;
+  min-width: 105px;
+} .date__main {
+} .date__secondary {
+  border-top: 1px solid rgba(#332e2d, 0.3);
+  margin-top: 20px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgba($c-text, 0.7);
+}
+
+
+
+.day-individual {
+  display: flex;
+}
+
+.content {
+  border-top: 1px solid rgba(#332e2d, 0.3);
+  border-right: 1px solid rgba(#332e2d, 0.3);
+  flex-grow: 1;
+  padding: 1em 3em 2em;
+  p, ul { font-family: $f-serif; }
+
+  &.no-style {
+    li, p {
+      color: rgba($c-text, 0.8);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      font-family: $f-sans;
+      &:before { display: none; }
+    }
+  }
+}
+
+.day-individual:last-child {
+  .content, .date { border-bottom: 1px solid rgba(#332e2d, 0.3); }
+}
+
+
+
+.week-individual {
+  .content, .date { border: none; }
+}
+
+.week-individual {
+  display: flex;
+  align-items: flex-start;
+} .summary {
+  margin-top: 1.8em;
+  font-weight: 600;
+  min-width: 105px;
+} .week-h1 {
+  font-size: 2.48832em;
+  font-weight: 700;
+  font-family: $f-serif;
+  margin: 0.35em 0 0.5em;
+} .week-subtitle {
+  color: rgba($c-text, 0.8);
+}
+
+.daily {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 1.44em;
+  margin: 2em 0 1em;
+  color: rgba($c-text, 0.8);
 }

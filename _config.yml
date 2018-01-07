@@ -7,10 +7,10 @@ defaults:
     values:
       layout: "default"
 
-permalink: /:title/
+permalink: /:categories/:year/:month/:day/
 
-paginate: 14
-paginate_path: "/log/page:num/"
+paginate: 7
+paginate_path: "/week/:num/"
 
 collections:
   my_categories:
