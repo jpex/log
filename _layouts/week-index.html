@@ -1,0 +1,34 @@
+{% include head-log.html %}
+  <div class="main">
+    {% include header.html %}
+
+      <div class="container">
+        <h1 class="week-h1">
+        Weekly Summaries
+        </h1>
+
+        <div class="week-index">
+          {% for post in site.categories.weekly %}
+            <div class="week">
+              <h2>
+                {% assign d = post.date | date: "%-d"  %}
+                {{ post.date | date: "%B" }}
+                  {% case d %}
+                  {% when '1' or '21' or '31' %}{{ d }}st,
+                  {% when '2' or '22' %}{{ d }}nd,
+                  {% when '3' or '23' %}{{ d }}rd,
+                  {% else %}{{ d }}th,
+                  {% endcase %}
+                {{ post.date | date: "%Y" }}
+              </h2>
+              <h3>Week #{{ post.title }}</h3>
+              <div class="content">
+                {{ post.content }}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+      </div>
+  </div>
+{% include foot.html %}

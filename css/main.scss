@@ -22,6 +22,8 @@ html, body {
   font-family: $f-sans;
   font-size: $em * 0.8;
   color: $c_color;
+  //background-color: #f5f1f0;
+  background: #FFF;
   @media (min-width: 550px) { font-size: $em; }
 }
 
@@ -195,19 +197,30 @@ p {
   margin-left: 1em;
 }
 
-h2 {
-  font-size: 1em * $scale;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 0.05em;
-  margin: (1em * $scale * $scale) 0 (1em);
-}
+.content {
+  h2 {
+    font-size: 1em * $scale;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.05em;
+    margin: (1em * $scale * $scale) 0 (1em);
+  }
 
-h4 {
-  margin-bottom: 1em * $scale;
-  font-size: 1em * 0.8;
-  font-style: italic;
+  h3 {
+    font-size: 1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 0.05em;
+    margin: (1em * $scale * $scale) 0 (1em);
+  }
+
+  h4 {
+    margin-bottom: 1em * $scale;
+    font-size: 1em * 0.8;
+    font-style: italic;
+  }
 }
 
 .streak {
@@ -215,14 +228,7 @@ h4 {
   @media (min-width: 942px) { display: block; }
 }
 
-h3 {
-  font-size: 1em;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: 'Oswald', sans-serif;
-  letter-spacing: 0.05em;
-  margin: (1em * $scale * $scale) 0 (1em);
-}
+
 
 li {
   &:before {
@@ -272,12 +278,10 @@ aside {
 
 header {
   background: #222;
-  display: flex;
-  justify-content: space-between;
+
   color: white;
   height: 50px;
   padding: 0 16px;
-  align-items: center;
   font-size: 0.875em;
   .toggle a {
     text-decoration: none;
@@ -302,6 +306,14 @@ header {
     }
   }
   a { transition: 0.25s all ease; }
+} .header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 .logo {
@@ -315,13 +327,14 @@ header {
 
 
 .container {
-  max-width: 940px;
+  max-width: 1000px;
   margin: 50px auto;
+  overflow: hidden;
 }
 
 .content {
   font-size: 1.25em;
-}
+} .week .content { font-size: 1em; padding: 2em 1em 2em 0; }
 
 .number {
   font-size: 58px;
@@ -342,14 +355,12 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-top: 1px solid rgba(#332e2d, 0.3);
-  border-left: 1px solid rgba(#332e2d, 0.3);
   border-right: 1px solid rgba(#332e2d, 0.1);
   padding: 16px;
   min-width: 105px;
 } .date__main {
 } .date__secondary {
-  border-top: 1px solid rgba(#332e2d, 0.3);
+  border-top: 1px solid rgba(#332e2d, 0.25);
   margin-top: 20px;
   padding-top: 20px;
   display: flex;
@@ -363,13 +374,18 @@ header {
 
 .day-individual {
   display: flex;
+  margin-bottom: 2em;
+  background: #FFF;
+  border: 1px solid rgba(#332e2d, 0.2);
+} .no-entry {
+  opacity: 0.4;
+  background: #FFF;
+  .content { display: flex; align-items: center; font-style: italic; font-family: $f-sans; }
 }
 
 .content {
-  border-top: 1px solid rgba(#332e2d, 0.3);
-  border-right: 1px solid rgba(#332e2d, 0.3);
   flex-grow: 1;
-  padding: 1em 3em 2em;
+  padding: 1em 4em 2em;
   p, ul { font-family: $f-serif; }
 
   &.no-style {
@@ -385,10 +401,39 @@ header {
 }
 
 .day-individual:last-child {
-  .content, .date { border-bottom: 1px solid rgba(#332e2d, 0.3); }
+  .content, .date { border-bottom: 1px solid rgba(#332e2d, 0.1); }
 }
 
 
+.week-index {
+  display: flex;
+  min-height: 50px;
+  flex-wrap: wrap;
+  margin: 0 -5px -5px 0;
+}
+
+.week {
+  flex: 1;
+  background: #FFF;
+  min-width: 450px;
+  min-height: 100px;
+  border-right: 1px solid rgba(#332e2d, 0.2);
+  border-bottom: 1px solid rgba(#332e2d, 0.2);
+  padding: 25px;
+  h2 {
+    font-family: $f-serif;
+    font-weight: 700;
+    font-size: 1.728em;
+  }
+  h3 {
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 6px;
+  }
+}
 
 .week-individual {
   .content, .date { border: none; }
