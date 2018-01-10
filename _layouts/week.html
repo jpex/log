@@ -1,0 +1,64 @@
+{% include head-week.html %}
+  <div class="main">
+    {% include header.html %}
+
+      <div class="container">
+        <h6 class="subtitle">Week #{{ page.title }}</h6>
+        <h1 class="week-h1">
+        {% assign d = page.date | date: "%-d"  %}
+        {{ page.date | date: "%B" }}
+          {% case d %}
+          {% when '1' or '21' or '31' %}{{ d }}st,
+          {% when '2' or '22' %}{{ d }}nd,
+          {% when '3' or '23' %}{{ d }}rd,
+          {% else %}{{ d }}th,
+          {% endcase %}
+        {{ page.date | date: "%Y" }}
+        </h1>
+
+        <div class="week-individual">
+          <div class="summary">Summary</div>
+          <div class="content no-style">
+            {{ content }}
+          </div>
+        </div>
+
+        <h1 class="daily">Daily Logs</h1>
+
+        {% assign pagedate = page.date | date: "%Y-%m-%d" %}
+        {% assign i = -1 %}
+        {% assign offseti = 0 %}
+
+        {% for post in site.categories.daily %}
+          {% assign i = i | plus: 1 %}
+          {% assign dailydate = post.date | date: "%Y-%m-%d" %}
+          {% if dailydate contains pagedate %}
+            {% assign offseti = i %}
+            {% for post in site.categories.daily offset: offseti limit:7 %}
+
+
+            <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %} {% if post.tags contains "draft" %} draft {% endif %}">
+              <div class="date">
+                <div class="date__main">
+                  <div class="number">{{ post.date | date: "%d" }}</div>
+                </div>
+                <div class="date__secondary">
+                  <div class="day">{{ post.date | date: "%a" }}</div>
+                  <div class="entry">Entry #{{ post.title }}</div>
+                </div>
+              </div>
+              <div class="content">
+                {{ post.content }}
+
+              </div>
+            </div>
+
+            {% endfor %}
+
+          {% endif %}
+
+        {% endfor %}
+      </div>
+
+  </div>
+{% include foot.html %}
