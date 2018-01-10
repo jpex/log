@@ -27,7 +27,7 @@
               <h3>Week #{{ post.title }}</h3>
               <div class="content">
                 {{ post.content }}
-                <a class="week-more" href="{{ post.url }}">View Daily Entries</a>
+                <a class="week-more" href="{{ post.url | prepend: site.baseurl }}">View Daily Entries</a>
               </div>
             </div>
           {% endfor %}
