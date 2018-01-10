@@ -7,7 +7,7 @@
     <div class="right">
       <span class="label">Log Entries</span>
       <div class="toggle">
-        <a href="#">Daily</a>
+        <a href="{% assign daily = site.categories.weekly.first %}{{ daily.url }}">Daily</a>
         <a href="/weekly">Weekly</a>
       </div>
     </div>

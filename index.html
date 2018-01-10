@@ -50,7 +50,7 @@ layout: home
   <div class="week-index">
 
 
-    {% for post in site.categories.weekly limit:2 %}
+    {% for post in site.categories.weekly limit:2 offset:1 %}
       <div class="week">
         <h2>
           {% assign d = post.date | date: "%-d"  %}
@@ -77,21 +77,23 @@ layout: home
   <h2 class="home-h2">Most Recent Daily Log</h2>
   <h4 class="home-h4">Warning: Daily logs are frequently chaotic.</h4>
 
-  {% for post in site.categories.daily limit: 1 %}
-    <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %}">
-      <div class="date">
-        <div class="date__main">
-          <div class="number">{{ post.date | date: "%d" }}</div>
+  {% for post in site.categories.daily %}
+    {% unless post.tags contains "none" %}
+      <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %}">
+        <div class="date">
+          <div class="date__main">
+            <div class="number">{{ post.date | date: "%d" }}</div>
+          </div>
+          <div class="date__secondary">
+            <div class="day">{{ post.date | date: "%a" }}</div>
+            <div class="entry">Entry #{{ post.title }}</div>
+          </div>
         </div>
-        <div class="date__secondary">
-          <div class="day">{{ post.date | date: "%a" }}</div>
-          <div class="entry">Entry #{{ post.title }}</div>
+        <div class="content">
+          {{ post.content }}
         </div>
       </div>
-      <div class="content">
-        {{ post.content }}
-      </div>
-    </div>
+      {% break %}
+    {% endunless %}
   {% endfor %}
-
 </div>

@@ -16,3 +16,5 @@ collections:
   my_categories:
     output: true
     permalink: /category/:name/
+
+future: true

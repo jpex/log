@@ -1,4 +1,4 @@
-{% include head-log.html %}
+{% include head-week.html %}
   <div class="main">
     {% include header.html %}
 
@@ -37,7 +37,7 @@
             {% for post in site.categories.daily offset: offseti limit:7 %}
 
 
-            <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %}">
+            <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %} {% if post.tags contains "draft" %} draft {% endif %}">
               <div class="date">
                 <div class="date__main">
                   <div class="number">{{ post.date | date: "%d" }}</div>

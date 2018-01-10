@@ -346,6 +346,8 @@ header {
   overflow: hidden;
 } .container__weekly {
   max-width: 1200px;
+} .container__tag {
+  img { max-height: 600px; display: block; margin: 3em auto; }
 }
 
 .content {
@@ -394,6 +396,7 @@ header {
   background: #FFF;
   border: 1px solid rgba(#332e2d, 0.2);
   .home & { margin-top: 1.5em; }
+  &.draft { display: none; }
 } .no-entry {
   opacity: 0.4;
   background: #FFF;
