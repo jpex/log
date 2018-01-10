@@ -1,11 +1,14 @@
-{% include head-log.html %}
+{% include head.html %}
   <div class="main">
     {% include header.html %}
 
       <div class="container container__weekly">
-        <h1 class="week-h1">
-        Weekly Summaries
-        </h1>
+        <div class="week-intro">
+          <h1 class="week-h1">
+          Weekly Summaries
+          </h1>
+          <p>An overview of what I accomplished each week. Updated every Sunday.</p>
+        </div>
 
         <div class="week-index">
           {% for post in site.categories.weekly %}

@@ -3,76 +3,95 @@ title: James’ Log
 layout: home
 ---
 
-<div class="wrapper-header">
+<div class="container">
   <p class="intro">Hi, my name is James, and this is my professional development log. I am a UX designer by trade.</p>
+</div>
+<div class="container home">
+
+  <hr class="home-hr">
 
 
-  <div class="row">
-    <div class="row-item-mc">
-      <div class="row-col">
-        <h3>Current Focus</h3>
-        <p><a href="{{ site.baseurl }}/tag/af"><span class="i">About Face: The Essentials of Interaction Design</a></span>
+  <div class="week-index">
+    <div class="week">
+      <h2>Current Studies</h2>
+      <h3>Since January 2018</h3>
+      <div class="content">
+        <p><a href="{{ site.baseurl }}/tag/ixd"><span class="i">About Face: The Essentials of Interaction Design</a></span>
           <br>
           <span class="indent">Since December 2017</span></p>
         </p>
-
-      </div>
-      <div class="row-col full">
-        <h3>Completed Studies</h3>
-        <ul class="no-style">
-          <li><p>
-            <span class="study-tag">Book</span>
-            <a href="{{ site.baseurl }}/tag/branding"><span class="i">Branding: A Very Short Introduction</a></span>
-            <span class="study-date">December 2017</span></p>
-          </p></li>
-          <li><p>
-            <span class="study-tag">Book</span>
-            <a href="{{ site.baseurl }}/tag/upd"><span class="i">Universal Principles of Design</a></span>
-            <span class="study-date">October – December 2017</span></p>
-          </p></li>
-        </ul>
+        <p><a href="{{ site.baseurl }}/tag/organizations"><span class="i">Organizations: A Very Short Introduction</a></span>
+          <br>
+          <span class="indent">Since January 2018</span></p>
+        </p>
       </div>
     </div>
-
+    <div class="week">
+      <h2>Completed Studies</h2>
+      <h3>Since October 2017</h3>
+      <div class="content">
+        <p><a href="{{ site.baseurl }}/tag/branding"><span class="i">Branding: A Very Short Introduction</a></span>
+          <br>
+          <span class="indent">December 2017 – January 2018</span></p>
+        </p>
+        <p><a href="{{ site.baseurl }}/tag/upd"><span class="i">Universal Principles of Design</a></span>
+          <br>
+          <span class="indent">October – December 2017</span></p>
+        </p>
+      </div>
+    </div>
   </div>
 
-
-  <h3 class="section-header">Lastest Daily Entries</h3>
   <hr class="home-hr">
 
-</div>
+  <h2 class="home-h2">Most Recent Weekly Logs</h2>
+  <h4 class="home-h4">Updated every Sunday.</h4>
 
-<div class="wrapper">
-
-  {% for post in site.posts limit:14 %}
-
-
-    {% assign day = post.date | date: "%-d" %}
+  <div class="week-index">
 
 
-    <h2>
-      {{ post.date | date: "%B " }}
-      {% case day %}
-        {% when '1' or '21' or '31' %}{{ day }}st,
-        {% when '2' or '22' %}{{ day }}nd,
-        {% when '3' or '23' %}{{ day }}rd,
-        {% else %}{{ day }}th,
-      {% endcase %}
-      {{ post.date | date: "%Y" }}
-    </h2>
+    {% for post in site.categories.weekly limit:2 %}
+      <div class="week">
+        <h2>
+          {% assign d = post.date | date: "%-d"  %}
+          {{ post.date | date: "%B" }}
+            {% case d %}
+            {% when '1' or '21' or '31' %}{{ d }}st,
+            {% when '2' or '22' %}{{ d }}nd,
+            {% when '3' or '23' %}{{ d }}rd,
+            {% else %}{{ d }}th,
+            {% endcase %}
+          {{ post.date | date: "%Y" }}
+        </h2>
+        <h3>Week #{{ post.title }}</h3>
+        <div class="content">
+          {{ post.content }}
+          <a class="week-more" href="{{ post.url }}">View Daily Entries</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
 
-    <aside><p><a href="{{ site.baseurl }}/{{ post.url }}">Entry #{{ post.title }}</a></p></aside>
-    {{ post.content }}
+  <hr class="home-hr">
 
-    <h3>Tags</h3>
-    <p class="p-end">
-      {% for tag in post.tags %}
-        <a href="{{ site.baseurl }}/tag/{{ tag }}">{{ tag }}</a> &nbsp;
-      {% endfor %}
-    </p>
+  <h2 class="home-h2">Most Recent Daily Log</h2>
+  <h4 class="home-h4">Warning: Daily logs are frequently chaotic.</h4>
 
-    {% assign recent = recent | plus:1 %}
-    {% assign r = r | minus:1 %}
+  {% for post in site.categories.daily limit: 1 %}
+    <div class="day-individual {% if post.tags contains "none" %} no-entry {% endif %}">
+      <div class="date">
+        <div class="date__main">
+          <div class="number">{{ post.date | date: "%d" }}</div>
+        </div>
+        <div class="date__secondary">
+          <div class="day">{{ post.date | date: "%a" }}</div>
+          <div class="entry">Entry #{{ post.title }}</div>
+        </div>
+      </div>
+      <div class="content">
+        {{ post.content }}
+      </div>
+    </div>
   {% endfor %}
 
 </div>
