@@ -1,4 +1,1 @@
-# Diary
-My Professional Log
-
-## https://jpex.github.io/log/
+### This project is no longer being updated.
